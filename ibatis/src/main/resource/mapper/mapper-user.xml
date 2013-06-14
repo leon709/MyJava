@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+	"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<!-- user -->
+<mapper namespace="user">
+	<select id="selectUser" parameterType="int" resultType="User">
+		select 
+			userid,username,password,groupname 
+		from user 
+		where 
+			userid = #{userid}
+    </select>
+    <select id="selectAllUser" resultType="User">
+        select userid,username,password,groupname 
+        from user 
+        order by userid
+    </select>
+    <insert id="insertUser" parameterType="User">
+        insert into user(username,password,groupname) 
+        values (#{username},#{password},#{groupname})
+    </insert>
+    <delete id="deleteUserById" parameterType="int" >
+    	delete from user where id=#{userid}
+    </delete>
+    <delete id="updateUser" parameterType="User" >
+    	update user set 
+    		username=#{username} 
+    	where userid=#{userid}
+    </delete>
+</mapper>
+
+
+<!--  
+<mapper namespace="leon.ibatis.dao.StudentDao"></mapper>
+-->
