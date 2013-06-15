@@ -217,3 +217,4 @@ pip-log.txt
 # add by leon709 Jun 14, 2013
 *.class
 target/
+*.jar
